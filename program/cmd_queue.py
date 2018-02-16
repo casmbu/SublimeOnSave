@@ -81,7 +81,7 @@ class CmdProcess():
         self.console.echo( text )
 
     def on_finished(self, process):
-        exit_code = process.exit_code()
+        exit_code = process.exit_code() or 0
         if exit_code == 0:
             self.console.log( "\n<<< # Finished use %.2fs\n" % (time.time() - self.timestamp) )
         else:
@@ -94,19 +94,3 @@ class CmdProcess():
         self.queue = []
         self.kill( "clear" )
         self.console.clear()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
